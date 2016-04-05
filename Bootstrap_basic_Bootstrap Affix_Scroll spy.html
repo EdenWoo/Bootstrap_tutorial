@@ -31,15 +31,33 @@
   #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
   </style>
 </head>
+<!-- The scrollable area -->
+<!--Add data-spy="scroll" to the element that should be used as the scrollable area (often this is the <body> element).-->
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
   <h1>Scrollspy & Affix Example</h1>
   <h3>Fixed navbar on scroll</h3>
   <p>Scroll this page to see how the navbar behaves with data-spy="affix" and data-spy="scrollspy".</p>
-  <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.</p>
+  <p>The navbar is attached to the top of the page after you have scrolled a specified amount of pixels, and the links in the navbar are automatically updated based on scroll position.
+
+  The plugin adds the .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position. Positioning with CSS is not required at this point.
+
+Scrolling past the affixed element triggers the actual affixing - This is where the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position:fixed). At this point, you must add the CSS top or bottom property to position the affixed element in the page.
+
+If a bottom offset is defined, scrolling past it replaces the .affix class with .affix-bottom. Since offsets are optional, setting one requires you to set the appropriate CSS. In this case, add position:absolute when necessary.
+</p>
 </div>
 
+<!--Add data-spy="affix" to the element you want affixed.Optionally, add the data-offset-top|bottom attribute to calculate the position of the scroll, data-offset-top="197"means where the nav bar begin to 
+fix.
+
+The affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state. You must add CSS properties to handle the actual positions, with the exception of position:fixed on the .affix class.
+
+the Affix plugin adds the .affix class (position:fixed) to the <nav> element when we have scrolled 197 pixels from the top.
+
+we added the CSS top property with a value of 0 to the .affix class. This is to make sure that the navbar stays at the top of the page at all time, when we have scrolled 197 pixels from the top.
+-->
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <div class="container-fluid">
     <div class="navbar-header">
